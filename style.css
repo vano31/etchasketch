@@ -1,0 +1,23 @@
+
+
+#page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#window {
+    box-sizing: border-box;
+    height: 700px;
+    width: 700px;
+    outline: 1px solid black ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+   
+}
+
+.box {
+    outline: 1px solid black;
+    box-sizing: border-box;
+}
