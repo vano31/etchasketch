@@ -72,14 +72,12 @@ let activateClickMode = function(){
             box.classList.remove(`hovered`);
         });
 
-        
-
     });
 
     clickMode.classList.add(`buttonClicked`);
     dragMode.classList.remove(`buttonClicked`);  
 
-    
+    window.document.removeEventListener(`mouseover`, hoverOverTwo());
 
 };
 
@@ -91,13 +89,12 @@ clickMode.addEventListener(`click`, activateClickMode);
 
 let dragMode = document.querySelector(`#dragMode`);
 let activateDragMode = function() {
-
    
 
     boxes.forEach(box => {
         box.addEventListener(`mouseover`, function hoverOverTwo() {
             box.classList.add(`filled`);
-        });    
+        }); 
 
     });
 
