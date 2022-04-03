@@ -34,6 +34,8 @@ const boxes = document.querySelectorAll(`.box`);
 //Make the color pickers buttons that are highlighted when you pick one
 //Make `click` mode and `black` color default
 
+
+
 boxes.forEach(box => {
     box.addEventListener(`click`, function clickOutcome() {
         box.classList.add(`filled`);
