@@ -52,21 +52,6 @@ buttons.forEach(button => {
 });
 
 
-
-//Click Mode and Drag Mode Toggles
-
-
-let dragModeStatus;
-
-let dragModeOn = function() {
-    dragModeStatus = true;
-}
-
-let dragModeOff = function() {
-    dragModeStatus = false;
-}
-
-
 //Click Mode
 
 let clickMode = document.querySelector(`#clickMode`);
@@ -87,14 +72,19 @@ let activateClickMode = function(){
             box.classList.remove(`hovered`);
         });
 
+        
+
     });
 
     clickMode.classList.add(`buttonClicked`);
     dragMode.classList.remove(`buttonClicked`);  
 
+    
+
 };
 
 clickMode.addEventListener(`click`, activateClickMode);
+
 
 
 //Drag Mode
@@ -102,7 +92,7 @@ clickMode.addEventListener(`click`, activateClickMode);
 let dragMode = document.querySelector(`#dragMode`);
 let activateDragMode = function() {
 
-    
+   
 
     boxes.forEach(box => {
         box.addEventListener(`mouseover`, function hoverOverTwo() {
@@ -117,6 +107,7 @@ let activateDragMode = function() {
 };
 
 dragMode.addEventListener(`click`, activateDragMode);
+
 
 
 
