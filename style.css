@@ -21,3 +21,12 @@
     outline: 1px solid black;
     box-sizing: border-box;
 }
+
+.filled {
+    background-color: black;
+}
+
+.hovered {
+    background-color: gray;
+}
+
