@@ -24,6 +24,16 @@ boxCalculator();
 
 const boxes = document.querySelectorAll(`.box`); 
 
+
+//Wrap the code below into one function that represents 'click' mode. 
+//Make a new function called drag mode, that encompasses another forEach
+//Make sure that a mode is clicked and that the button changes to represent the mode change
+//Make sure turning on one mode turns off the other
+//Add a clear button that removes everything
+//Add a color picker on that right that has ROYGBluePBlackW
+//Make the color pickers buttons that are highlighted when you pick one
+//Make `click` mode and `black` color default
+
 boxes.forEach(box => {
     box.addEventListener(`click`, function clickOutcome() {
         box.classList.add(`filled`);
@@ -37,9 +47,9 @@ boxes.forEach(box => {
         box.classList.remove(`hovered`);
     })
 
-
-
 });
+
+
 
 
 

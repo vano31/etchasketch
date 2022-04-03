@@ -2,11 +2,13 @@
 
 #page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 #window {
+    
     box-sizing: border-box;
     height: 700px;
     width: 700px;
@@ -30,3 +32,21 @@
     background-color: gray;
 }
 
+#bottomRow,
+#topRow {
+    height: 50px;
+    width: 700px;
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    
+}
+
+#topRow {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#bottomRow {
+    margin-top: 20px;
+}
