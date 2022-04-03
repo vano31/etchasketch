@@ -47,14 +47,32 @@ buttons.forEach(button => {
 
     button.addEventListener(`mouseleave`, function buttonHoverLeave() {
         button.classList.remove(`buttonHovered`);
-    });
-
+    })
 
 });
 
-let clickMode = document.querySelector(`#clickMode`);
 
+
+//Click Mode and Drag Mode Toggles
+
+
+let dragModeStatus;
+
+let dragModeOn = function() {
+    dragModeStatus = true;
+}
+
+let dragModeOff = function() {
+    dragModeStatus = false;
+}
+
+
+//Click Mode
+
+let clickMode = document.querySelector(`#clickMode`);
 let activateClickMode = function(){
+
+    
 
     boxes.forEach(box => {
         box.addEventListener(`click`, function clickOutcome() {
@@ -72,13 +90,33 @@ let activateClickMode = function(){
     });
 
     clickMode.classList.add(`buttonClicked`);
+    dragMode.classList.remove(`buttonClicked`);  
 
 };
 
-
-
 clickMode.addEventListener(`click`, activateClickMode);
 
+
+//Drag Mode
+
+let dragMode = document.querySelector(`#dragMode`);
+let activateDragMode = function() {
+
+    
+
+    boxes.forEach(box => {
+        box.addEventListener(`mouseover`, function hoverOverTwo() {
+            box.classList.add(`filled`);
+        });    
+
+    });
+
+    dragMode.classList.add(`buttonClicked`);
+    clickMode.classList.remove(`buttonClicked`);
+
+};
+
+dragMode.addEventListener(`click`, activateDragMode);
 
 
 
