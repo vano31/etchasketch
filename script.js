@@ -36,20 +36,49 @@ const boxes = document.querySelectorAll(`.box`);
 
 
 
-boxes.forEach(box => {
-    box.addEventListener(`click`, function clickOutcome() {
-        box.classList.add(`filled`);
-    })
+//Bottom Row Button Hovering CSS Change
 
-    box.addEventListener(`mouseover`, function hoverOver() {
-        box.classList.add(`hovered`);
-    })
+let buttons = document.querySelectorAll(`.button`);
 
-    box.addEventListener(`mouseleave`, function hoverLeave() {
-        box.classList.remove(`hovered`);
-    })
+buttons.forEach(button => {
+    button.addEventListener(`mouseover`, function buttonHoverOver() {
+        button.classList.add(`buttonHovered`);
+    });
+
+    button.addEventListener(`mouseleave`, function buttonHoverLeave() {
+        button.classList.remove(`buttonHovered`);
+    });
+
 
 });
+
+let clickMode = document.querySelector(`#clickMode`);
+
+let activateClickMode = function(){
+
+    boxes.forEach(box => {
+        box.addEventListener(`click`, function clickOutcome() {
+            box.classList.add(`filled`);
+        });
+
+        box.addEventListener(`mouseover`, function hoverOver() {
+            box.classList.add(`hovered`);
+        });
+
+        box.addEventListener(`mouseleave`, function hoverLeave() {
+            box.classList.remove(`hovered`);
+        });
+
+    });
+
+    clickMode.classList.add(`buttonClicked`);
+
+};
+
+
+
+clickMode.addEventListener(`click`, activateClickMode);
+
 
 
 
