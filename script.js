@@ -77,7 +77,7 @@ let activateClickMode = function(){
     clickMode.classList.add(`buttonClicked`);
     dragMode.classList.remove(`buttonClicked`);  
 
-    window.document.removeEventListener(`mouseover`, hoverOverTwo());
+    //window.document.removeEventListener(`mouseover`, hoverOverTwo());
 
 };
 
@@ -100,13 +100,13 @@ let activateDragMode = function() {
 
     dragMode.classList.add(`buttonClicked`);
     clickMode.classList.remove(`buttonClicked`);
-
+    
 };
 
 dragMode.addEventListener(`click`, activateDragMode);
 
 
-
+//Make the drag function global and then remove it within the click button by doing removeEventListener
 
 
 
