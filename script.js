@@ -107,6 +107,7 @@ dragMode.addEventListener(`click`, activateDragMode);
 
 
 //Make the drag function global and then remove it within the click button by doing removeEventListener
+//About to make all functions global
 
 
 
