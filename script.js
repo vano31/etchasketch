@@ -74,6 +74,7 @@ let activateClickMode = function(){
             box.classList.remove(`hovered`);
         });
 
+        //box.removeEventListener(`mouseover`, hoverOverTwo());
 
     });
 
@@ -94,9 +95,25 @@ clickMode.addEventListener(`click`, () => {
 
 clickMode.addEventListener(`click`, () => {
     activateClickMode();
+    /*boxes.forEach (box => {
+        box.removeEventListener(`mouseover`, hoverOverTwo());
+    });*/
     //dragMode.removeEventListener(`click`, activateDragMode());
 });
 
+
+
+//Drag Mode Main Function (Global)
+
+
+let hoverOverTwo = function() {
+    if (clickMode.classList.contains(`buttonClicked`) === true) {
+        boxes.forEach(box => {
+            box.classList.add(`filled`);
+        });
+        
+    }; 
+}
 
 
 //Drag Mode
@@ -107,12 +124,10 @@ let activateDragMode = function() {
 
   
 
-    boxes.forEach(box => {
-        box.addEventListener(`mouseover`, function hoverOverTwo() {
-            box.classList.add(`filled`);
-        }); 
-
-    });
+    boxes.forEach (box => {
+        box.addEventListener(`mouseover`, hoverOverTwo());
+    })
+    
 
     dragMode.classList.add(`buttonClicked`);
     clickMode.classList.remove(`buttonClicked`);
