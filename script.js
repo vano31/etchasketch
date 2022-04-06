@@ -52,12 +52,14 @@ buttons.forEach(button => {
 });
 
 
+
+
 //Click Mode
+
 
 let clickMode = document.querySelector(`#clickMode`);
 let activateClickMode = function(){
 
-    
 
     boxes.forEach(box => {
         box.addEventListener(`click`, function clickOutcome() {
@@ -72,16 +74,28 @@ let activateClickMode = function(){
             box.classList.remove(`hovered`);
         });
 
+
     });
 
     clickMode.classList.add(`buttonClicked`);
     dragMode.classList.remove(`buttonClicked`);  
-
-    //window.document.removeEventListener(`mouseover`, hoverOverTwo());
-
+    
 };
 
-clickMode.addEventListener(`click`, activateClickMode);
+/*
+clickMode.addEventListener(`click`, () => {
+    boxes.forEach (box => {
+        box.classList.add(`toggleClickMode`);
+    })
+    functionSwitcher();
+
+});
+*/
+
+clickMode.addEventListener(`click`, () => {
+    activateClickMode();
+    //dragMode.removeEventListener(`click`, activateDragMode());
+});
 
 
 
@@ -90,6 +104,8 @@ clickMode.addEventListener(`click`, activateClickMode);
 let dragMode = document.querySelector(`#dragMode`);
 let activateDragMode = function() {
    
+
+  
 
     boxes.forEach(box => {
         box.addEventListener(`mouseover`, function hoverOverTwo() {
@@ -100,31 +116,55 @@ let activateDragMode = function() {
 
     dragMode.classList.add(`buttonClicked`);
     clickMode.classList.remove(`buttonClicked`);
+
     
 };
 
-dragMode.addEventListener(`click`, activateDragMode);
+/*
+dragMode.addEventListener(`click`, () => {
+    boxes.forEach(box => {
+        box.classList.remove(`toggleClickMode`);
+    })
+    functionSwitcher();
+});*/
+
+dragMode.addEventListener(`click`, () => {
+    activateDragMode();
+    //clickMode.removeEventListener(`click`, activateClickMode());
+})
 
 
-//Make the drag function global and then remove it within the click button by doing removeEventListener
-//About to make all functions global
+//Switch between variables activateClickMode and activateDragMode
 
 
+/*
 
+let functionSwitcher = function() {
 
+    boxes.forEach(box => {
+        if (box.classList.contains(`toggleClickMode`) == `undefined`) {
+            return;
+        }   else if (box.classList.contains(`toggleClickMode`) === true) {
+            activateClickMode();
+        }   else if (box.classList.contains(`toggleClickMode`) === false) {
+            activateDragMode();
+        }
+    })
 
-//let totalBox = numberBox ** 2;
+}
 
-
-/* Test to make sure box model works
-
-let box = document.createElement(`div`);
-box.classList.add(`box`);
-box.textContent = `Yahoo`;
-wind.appendChild(box);
-
-box.setAttribute(`style`, `height: 350px; width: 350px;`);
-
+functionSwitcher();
 */
+
+
+
+
+
+
+
+
+
+
+
 
 
