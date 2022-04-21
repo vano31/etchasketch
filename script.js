@@ -1,13 +1,15 @@
 //Etch-A-Sketch
 
+
 const wind = document.querySelector(`#window`);
 
 let input = prompt(`Please type the amount of boxes you want to make up the height and width`);
 let numberBox = parseInt(input);
 let i;
+let totalBox;
 
 let boxCalculator = function() {
-        let totalBox = numberBox ** 2;
+        totalBox = numberBox ** 2;
         const boxContainer = [];
         for (i = 0; i < totalBox; i++) {
             boxContainer[i] = document.createElement(`div`);
@@ -23,18 +25,7 @@ boxCalculator();
 
 
 const boxes = document.querySelectorAll(`.box`); 
-
-
-//Wrap the code below into one function that represents 'click' mode. 
-//Make a new function called drag mode, that encompasses another forEach
-//Make sure that a mode is clicked and that the button changes to represent the mode change
-//Make sure turning on one mode turns off the other
-//Add a clear button that removes everything
-//Add a color picker on that right that has ROYGBluePBlackW
-//Make the color pickers buttons that are highlighted when you pick one
-//Make `click` mode and `black` color default
-
-
+let boxArray = Array.from(boxes);
 
 //Bottom Row Button Hovering CSS Change
 
@@ -53,129 +44,66 @@ buttons.forEach(button => {
 
 
 
-
-//Click Mode
-
-
 let clickMode = document.querySelector(`#clickMode`);
-let activateClickMode = function(){
-
-
-    boxes.forEach(box => {
-        box.addEventListener(`click`, function clickOutcome() {
-            box.classList.add(`filled`);
-        });
-
-        box.addEventListener(`mouseover`, function hoverOver() {
-            box.classList.add(`hovered`);
-        });
-
-        box.addEventListener(`mouseleave`, function hoverLeave() {
-            box.classList.remove(`hovered`);
-        });
-
-        //box.removeEventListener(`mouseover`, hoverOverTwo());
-
-    });
-
-    clickMode.classList.add(`buttonClicked`);
-    dragMode.classList.remove(`buttonClicked`);  
-    
-};
-
-/*
-clickMode.addEventListener(`click`, () => {
-    boxes.forEach (box => {
-        box.classList.add(`toggleClickMode`);
-    })
-    functionSwitcher();
-
-});
-*/
-
-clickMode.addEventListener(`click`, () => {
-    activateClickMode();
-    /*boxes.forEach (box => {
-        box.removeEventListener(`mouseover`, hoverOverTwo());
-    });*/
-    //dragMode.removeEventListener(`click`, activateDragMode());
-});
-
-
-
-//Drag Mode Main Function (Global)
-
-
-let hoverOverTwo = function() {
-    if (clickMode.classList.contains(`buttonClicked`) === true) {
-        boxes.forEach(box => {
-            box.classList.add(`filled`);
-        });
-        
-    }; 
-}
-
-
-//Drag Mode
-
 let dragMode = document.querySelector(`#dragMode`);
-let activateDragMode = function() {
-   
+let clearPixels = document.querySelector(`#clearPixels`);
 
+clickMode.addEventListener(`click`, () => {
+  clickMode.classList.add(`buttonClicked`);
+  dragMode.classList.remove(`buttonClicked`);
+  clearPixels.classList.remove(`buttonClicked`);
+  switcher();
+})
+
+dragMode.addEventListener(`click`, () => {
+  dragMode.classList.add(`buttonClicked`);
+  clickMode.classList.remove(`buttonClicked`);
+  clearPixels.classList.remove(`buttonClicked`);
+  switcher();
+})
+
+clearPixels.addEventListener(`click`, () => {
+  clearPixels.classList.add(`buttonClicked`);
+  clickMode.classList.remove(`buttonClicked`);
+  dragMode.classList.remove(`buttonClicked`);
+  switcher();
   
-
-    boxes.forEach (box => {
-        box.addEventListener(`mouseover`, hoverOverTwo());
-    })
-    
-
-    dragMode.classList.add(`buttonClicked`);
-    clickMode.classList.remove(`buttonClicked`);
-
-    
-};
-
-/*
-dragMode.addEventListener(`click`, () => {
-    boxes.forEach(box => {
-        box.classList.remove(`toggleClickMode`);
-    })
-    functionSwitcher();
-});*/
-
-dragMode.addEventListener(`click`, () => {
-    activateDragMode();
-    //clickMode.removeEventListener(`click`, activateClickMode());
 })
 
 
-//Switch between variables activateClickMode and activateDragMode
 
 
-/*
-
-let functionSwitcher = function() {
-
-    boxes.forEach(box => {
-        if (box.classList.contains(`toggleClickMode`) == `undefined`) {
-            return;
-        }   else if (box.classList.contains(`toggleClickMode`) === true) {
-            activateClickMode();
-        }   else if (box.classList.contains(`toggleClickMode`) === false) {
-            activateDragMode();
-        }
-    })
-
+let switcher = function(){
+  if (clickMode.classList.contains(`buttonClicked`)) {
+    
+    wind.onclick = function(e) {
+      let box = e.target.closest(`.box`);
+      console.log(box);
+      box.classList.add(`filled`);
+    } 
+    wind.onmouseover = function(e) {
+      return;
+    }
+    
+  } else if (dragMode.classList.contains(`buttonClicked`)) {
+    
+      wind.onmouseover = function(e) {
+        let box = e.target.closest(`.box`);
+        box.classList.add(`filled`);
+        console.log(box);
+    }
+  } else if (clearPixels.classList.contains(`buttonClicked`)) {
+      for (oneBox of boxArray) {
+        oneBox.classList.remove(`filled`);
+      }
+      wind.onmouseover = function(e) {
+        return;
+      }
+      wind.onclick = function(e) {
+        return;
+      }
+  }
 }
-
-functionSwitcher();
-*/
-
-
-
-
-
-
 
 
 
