@@ -82,7 +82,14 @@ let switcher = function(){
       box.classList.add(`filled`);
     } 
     wind.onmouseover = function(e) {
-      return;
+      //return;
+      let box = e.target.closest(`.box`);
+      box.classList.add(`hovered`);
+    }
+
+    wind.onmouseout = function(e) {
+      let box = e.target.closest(`.box`);
+      box.classList.remove(`hovered`);
     }
     
   } else if (dragMode.classList.contains(`buttonClicked`)) {
