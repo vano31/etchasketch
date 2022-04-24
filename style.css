@@ -20,6 +20,19 @@
    
 }
 
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: -50px;
+}
+
+.title {
+    margin: 0px;
+}
+
 .box {
     outline: 1px solid black;
     box-sizing: border-box;

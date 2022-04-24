@@ -3,7 +3,7 @@
 
 const wind = document.querySelector(`#window`);
 
-let input = prompt(`Please type the amount of boxes you want to make up the height and width`);
+let input = prompt(`Please type the amount of boxes you want to make up the height and width of window.`);
 let numberBox = parseInt(input);
 let i;
 let totalBox;
